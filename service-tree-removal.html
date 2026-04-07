@@ -145,6 +145,26 @@
         .timeline-step:nth-child(2) { transition-delay: 200ms; }
         .timeline-step:nth-child(3) { transition-delay: 400ms; }
     </style>
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Tree Removal",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Silas Tree and Turf",
+        "url": "https://silas-tree-and-turf.vercel.app/",
+        "telephone": "2512785506",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Fairhope",
+          "addressRegion": "AL"
+        }
+      },
+      "areaServed": "Fairhope, AL"
+    }
+    </script>
 </head>
 
 <body class="bg-brand-slate font-body text-gray-800 antialiased overflow-x-hidden" x-data="{ mobileMenu: false, scrolled: false, overDarkSection: false }" @scroll.window="scrolled = (window.scrollY > window.innerHeight - 80); const el = document.getElementById('visual-transformation'); if(el) { const rect = el.getBoundingClientRect(); overDarkSection = (rect.top <= 100 && rect.bottom >= 100); }">

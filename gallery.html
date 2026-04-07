@@ -145,6 +145,38 @@
         .timeline-step:nth-child(2) { transition-delay: 200ms; }
         .timeline-step:nth-child(3) { transition-delay: 400ms; }
     </style>
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Silas Tree and Turf",
+      "image": "https://silas-tree-and-turf.vercel.app/silastreetransparentlogo.webp",
+      "url": "https://silas-tree-and-turf.vercel.app/",
+      "telephone": "2512785506",
+      "email": "silastreeandturf@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Fairhope",
+        "addressRegion": "AL"
+      },
+      "areaServed": "Fairhope",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "07:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "14:00"
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body class="bg-brand-slate font-body text-gray-800 antialiased overflow-x-hidden" x-data="{ mobileMenu: false, scrolled: false, overDarkSection: false }" @scroll.window="scrolled = (window.scrollY > window.innerHeight - 80); const el = document.getElementById('visual-transformation'); if(el) { const rect = el.getBoundingClientRect(); overDarkSection = (rect.top <= 100 && rect.bottom >= 100); }">
