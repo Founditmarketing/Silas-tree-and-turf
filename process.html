@@ -336,9 +336,46 @@
         </div>
     </section>
 
-<footer class="bg-brand-deep">
+    <footer id="contact" class="flex flex-col lg:flex-row min-h-screen">
+        <!-- Left: Contact Form -->
+        <div class="w-full lg:w-1/2 bg-white p-12 md:p-24 flex flex-col justify-center scroll-reveal" x-intersect.once="$el.classList.add('active')">
+            <h2 class="font-display font-extrabold text-5xl md:text-8xl text-brand-deep mb-12 tracking-tighter scroll-reveal" x-intersect.once="$el.classList.add('active')">Let's
+                Talk <span class="text-brand-bright">Trees.</span></h2>
+
+            <form class="space-y-8">
+                <div class="relative group">
+                    <input type="text" id="name"
+                        class="w-full border-b-2 border-gray-200 py-4 outline-none focus:border-brand-bright transition-colors peer bg-transparent"
+                        placeholder=" ">
+                    <label for="name"
+                        class="absolute left-0 top-4 text-gray-400 pointer-events-none transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-brand-bright peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs">Full
+                        Name</label>
+                </div>
+                <div class="relative group">
+                    <input type="email" id="email"
+                        class="w-full border-b-2 border-gray-200 py-4 outline-none focus:border-brand-bright transition-colors peer bg-transparent"
+                        placeholder=" ">
+                    <label for="email"
+                        class="absolute left-0 top-4 text-gray-400 pointer-events-none transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-brand-bright peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs">Email
+                        Address</label>
+                </div>
+                <div class="relative group">
+                    <textarea id="message" rows="4"
+                        class="w-full border-b-2 border-gray-200 py-4 outline-none focus:border-brand-bright transition-colors peer bg-transparent resize-none"
+                        placeholder=" "></textarea>
+                    <label for="message"
+                        class="absolute left-0 top-4 text-gray-400 pointer-events-none transition-all peer-focus:-top-4 peer-focus:text-xs peer-focus:text-brand-bright peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-xs">Tell
+                        us about your project</label>
+                </div>
+                <button
+                    class="w-full bg-brand-deep text-white py-6 rounded-2xl font-bold text-xl hover:bg-brand-bright transition-all shadow-xl shadow-brand-deep/20">
+                    Send Inquiry
+                </button>
+            </form>
+        </div>
+
         <!-- Right: Footer Info -->
-        <div class="w-full bg-brand-deep p-12 md:p-24 text-white flex flex-col justify-between">
+        <div class="w-full lg:w-1/2 bg-brand-deep p-12 md:p-24 text-white flex flex-col justify-between scroll-reveal" x-intersect.once="$el.classList.add('active')" style="transition-delay: 200ms;">
             <div class="space-y-12">
                 <div>
                     <p class="text-brand-bright font-bold uppercase tracking-widest text-sm mb-4">Contact Details</p>
@@ -374,9 +411,6 @@
                 </div>
             </div>
         </div>
-    </footer>
-
-    
     </footer>
 <!-- 10. Floating Contact Widget -->
     <div x-data="{ contactModal: false }" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
