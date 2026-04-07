@@ -527,37 +527,29 @@
         </div>
     </section>
 
-    <!-- 6. Interactive Before & After -->
-    <section id="visual-transformation" class="py-32 bg-brand-deep overflow-hidden">
+    <!-- 6. Trust Metrics Banner -->
+    <section id="metrics" class="py-16 md:py-24 bg-brand-deep overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-20">
-                <h2 class="font-display font-extrabold text-4xl md:text-6xl text-white mb-6 scroll-reveal" x-intersect.once="$el.classList.add('active')">Visual <span
-                        class="text-brand-bright">Transformation.</span></h2>
-                <p class="text-white/60 text-xl">Slide to see how we restore safety and beauty to your property.</p>
-            </div>
-
-            <div class="relative w-full max-w-5xl mx-auto aspect-video rounded-3xl overflow-hidden shadow-2xl border-8 border-white/10 scroll-reveal" x-intersect.once="$el.classList.add('active')"
-                x-data="{ slider: 50 }">
-                
-                <!-- Before (Bottom Layer - visible on the RIGHT when slider is dragged left) -->
-                <div class="absolute inset-0 z-0">
-                    <div class="w-full h-full bg-slate-800 flex items-center justify-end pr-12 md:pr-24"><p class="text-white/20 text-right font-display text-4xl md:text-6xl font-bold tracking-widest uppercase">Before<br>Image</p></div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 text-center divide-x-0 md:divide-x divide-white/10">
+                <div class="scroll-reveal flex flex-col items-center" x-intersect.once="$el.classList.add('active')">
+                    <i class="fa-solid fa-tree text-3xl text-white/20 mb-4"></i>
+                    <p class="font-display font-extrabold text-5xl md:text-6xl text-brand-bright mb-2">20+</p>
+                    <p class="text-white/80 font-bold uppercase tracking-widest text-sm">Years Experience</p>
                 </div>
-
-                <!-- After (Top Layer - visible on the LEFT when slider is dragged right) -->
-                <div class="absolute inset-0 pointer-events-none z-10 border-r-[6px] border-white shadow-[15px_0_30px_rgba(0,0,0,0.8)]" :style="`clip-path: inset(0 ${100 - slider}% 0 0)`">
-                    <div class="w-full h-full bg-brand-bright flex items-center justify-start pl-12 md:pl-24"><p class="text-brand-deep text-left font-display text-4xl md:text-6xl font-bold tracking-widest uppercase opacity-70">After<br>Image</p></div>
+                <div class="scroll-reveal flex flex-col items-center" x-intersect.once="$el.classList.add('active')" style="transition-delay: 100ms;">
+                    <i class="fa-solid fa-truck-fast text-3xl text-white/20 mb-4"></i>
+                    <p class="font-display font-extrabold text-5xl md:text-6xl text-brand-bright mb-2">24/7</p>
+                    <p class="text-white/80 font-bold uppercase tracking-widest text-sm">Emergency Response</p>
                 </div>
-
-                <!-- Slider Control Input -->
-                <input type="range" min="0" max="100" x-model="slider"
-                    class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30 touch-pinch-zoom before-after-slider"
-                    style="-webkit-appearance: none; appearance: none;">
-
-                <!-- Visual Divider Handle -->
-                <div class="absolute top-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full border-4 border-brand-bright flex items-center justify-center text-brand-deep shadow-2xl pointer-events-none z-40 transform -translate-x-1/2 transition-transform duration-75"
-                    :style="`left: ${slider}%`">
-                    <i class="fa-solid fa-arrows-left-right text-2xl font-bold"></i>
+                <div class="scroll-reveal flex flex-col items-center" x-intersect.once="$el.classList.add('active')" style="transition-delay: 200ms;">
+                    <i class="fa-solid fa-shield-halved text-3xl text-white/20 mb-4"></i>
+                    <p class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-brand-bright mb-2">Safe</p>
+                    <p class="text-white/80 font-bold uppercase tracking-widest text-sm">Licensed & Insured</p>
+                </div>
+                <div class="scroll-reveal flex flex-col items-center" x-intersect.once="$el.classList.add('active')" style="transition-delay: 300ms;">
+                    <i class="fa-solid fa-star text-3xl text-white/20 mb-4"></i>
+                    <p class="font-display font-extrabold text-5xl md:text-6xl text-brand-bright mb-2">100%</p>
+                    <p class="text-white/80 font-bold uppercase tracking-widest text-sm">Satisfaction Target</p>
                 </div>
             </div>
         </div>
