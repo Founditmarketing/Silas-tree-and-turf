@@ -177,7 +177,68 @@
 <body class="bg-brand-slate font-body text-gray-800 antialiased overflow-x-hidden" x-data="{ mobileMenu: false, scrolled: false, overDarkSection: false }" @scroll.window="scrolled = (window.scrollY > window.innerHeight - 80); const el = document.getElementById('visual-transformation'); if(el) { const rect = el.getBoundingClientRect(); overDarkSection = (rect.top <= 100 && rect.bottom >= 100); }">
 
     
-    <!-- 1. Floating Header with Outside Logo -->
+    
+
+    <!-- 24/7 Emergency Services Sliding Banner -->
+    <div x-data="{ showBanner: false, dismissed: false }" x-init="setTimeout(() => showBanner = true, 1500)" x-show="showBanner && !dismissed" x-cloak
+         x-transition:enter="transition ease-out duration-700"
+         x-transition:enter-start="opacity-0 -translate-y-full"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         x-transition:leave="transition ease-in duration-400"
+         x-transition:leave-start="opacity-100 translate-y-0"
+         x-transition:leave-end="opacity-0 -translate-y-full"
+         class="fixed top-0 left-0 right-0 z-[60] bg-gradient-to-r from-red-950 via-red-900 to-red-950 shadow-[0_4px_30px_rgba(239,68,68,0.3)] border-b-2 border-red-500/40" id="emergency-banner">
+        
+        <!-- Animated background glow -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -left-20 top-0 w-40 h-full bg-gradient-to-r from-transparent via-red-500/10 to-transparent animate-[shimmer_4s_infinite]"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 py-2.5 sm:py-3 flex items-center justify-between gap-3 sm:gap-6">
+            <!-- Left: Emergency indicator + text -->
+            <div class="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
+                <!-- Pulsing live indicator -->
+                <div class="flex-shrink-0 hidden sm:flex items-center gap-2">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]"></span>
+                    </span>
+                </div>
+                
+                <!-- Emergency icon -->
+                <div class="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 bg-red-600/80 rounded-lg flex items-center justify-center shadow-lg shadow-red-600/30">
+                    <i class="fa-solid fa-bolt text-white text-sm sm:text-base"></i>
+                </div>
+                
+                <!-- Scrolling text area -->
+                <div class="flex-1 min-w-0 overflow-hidden">
+                    <p class="text-white font-display font-bold text-xs sm:text-sm truncate sm:whitespace-normal">
+                        <span class="text-red-400 font-extrabold animate-pulse">24/7</span>
+                        <span class="hidden sm:inline"> Emergency Tree Services</span>
+                        <span class="sm:hidden"> Emergency</span>
+                        <span class="text-white/60 font-normal mx-1.5 hidden md:inline">—</span>
+                        <span class="hidden md:inline text-white/80 font-normal">Storm Damage • Fallen Trees • Hazard Removal • Rapid Response</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right: Call button + dismiss -->
+            <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                <a href="tel:2512785506" 
+                   class="inline-flex items-center gap-2 bg-white hover:bg-red-50 text-red-700 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm shadow-lg shadow-black/20 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 whitespace-nowrap group">
+                    <i class="fa-solid fa-phone-volume text-red-600 group-hover:animate-[pulse_1s_ease-in-out_infinite]"></i>
+                    <span class="hidden sm:inline">Call Now</span>
+                    <span class="font-extrabold">251.278.5506</span>
+                </a>
+                
+                <!-- Dismiss button -->
+                <button @click="dismissed = true" class="text-white/40 hover:text-white transition-colors p-1 rounded-full hover:bg-white/10" aria-label="Dismiss banner">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <header class="fixed top-6 left-0 z-50 w-full px-4 lg:px-12 flex items-center gap-4 md:gap-6 ">
 
         <!-- Logo outside the glass bar -->
