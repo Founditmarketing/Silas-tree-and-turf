@@ -465,48 +465,40 @@
         </div>
     </footer>
 <!-- 10. Floating Contact Widget -->
-    <div x-data="{ contactModal: false }" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-
-        <!-- The Modal -->
-        <div x-show="contactModal" x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="opacity-0 translate-y-8 scale-95"
-            x-transition:enter-end="opacity-100 translate-y-0 scale-100"
-            x-transition:leave="transition ease-in duration-200"
-            x-transition:leave-start="opacity-100 translate-y-0 scale-100"
-            x-transition:leave-end="opacity-0 translate-y-8 scale-95" x-cloak
-            class="mb-6 w-[340px] sm:w-[380px] bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-200 origin-bottom-right scroll-reveal" x-intersect.once="$el.classList.add('active')">
-
+    <div x-data="{ contactModal: false }" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">        <!-- The Modal -->
+        <div x-show="contactModal" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 translate-y-8 scale-95"
+             x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+             x-transition:leave-end="opacity-0 translate-y-8 scale-95"
+             x-cloak
+             class="mb-4 sm:mb-6 w-[340px] sm:w-[380px] bg-white rounded-3xl shadow-2xl overflow-hidden overflow-y-auto max-h-[calc(100vh-100px)] border border-gray-200 origin-bottom-right scroll-reveal flex flex-col" x-intersect.once="$el.classList.add('active')">
+            
             <!-- Modal Header (Call Now) -->
-            <div class="bg-brand-deep p-8 text-center relative border-b-[6px] border-brand-bright">
-                <button @click="contactModal = false"
-                    class="absolute top-4 right-4 text-white/40 hover:text-white transition-colors">
+            <div class="bg-brand-deep p-6 sm:p-8 text-center relative border-b-[6px] border-brand-bright flex-shrink-0">
+                <button @click="contactModal = false" class="absolute top-4 right-4 text-white/40 hover:text-white transition-colors">
                     <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
-                <div
-                    class="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center text-white mx-auto mb-4 shadow-lg shadow-red-600/30 animate-[pulse_2s_ease-in-out_infinite]">
-                    <i class="fa-solid fa-phone-volume text-2xl"></i>
+                <div class="w-12 h-12 sm:w-14 sm:h-14 bg-red-600 rounded-full flex items-center justify-center text-white mx-auto mb-3 sm:mb-4 shadow-lg shadow-red-600/30 animate-[pulse_2s_ease-in-out_infinite]">
+                    <i class="fa-solid fa-phone-volume text-xl sm:text-2xl"></i>
                 </div>
-                <h3 class="font-display font-bold text-white text-2xl mb-1">Tree Emergency?</h3>
-                <p class="text-white/80 text-sm mb-6">Our elite crews are ready <span class="text-red-400 font-bold drop-shadow-sm flex items-center gap-1 inline-flex"><span class="relative flex h-2 w-2 mr-1"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span></span>24/7.</span></p>
-                <a href="tel:2512785506"
-                    class="inline-block w-full py-4 bg-brand-bright hover:bg-white hover:text-brand-deep text-white rounded-xl font-bold text-lg transition-all duration-300 shadow-md">
+                <h3 class="font-display font-bold text-white text-xl sm:text-2xl mb-1">Tree Emergency?</h3>
+                <p class="text-white/80 text-xs sm:text-sm mb-4 sm:mb-6">Our elite crews are ready <span class="text-red-400 font-bold drop-shadow-sm flex items-center gap-1 inline-flex"><span class="relative flex h-2 w-2 mr-1"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span></span>24/7.</span></p>
+                <a href="tel:2512785506" class="inline-block w-full py-3 sm:py-4 bg-brand-bright hover:bg-white hover:text-brand-deep text-white rounded-xl font-bold text-base sm:text-lg transition-all duration-300 shadow-md">
                     Call 251.278.5506
                 </a>
             </div>
 
             <!-- Modal Body (Contact Form) -->
-            <div class="p-8 bg-brand-slate">
-                <h4 class="font-bold text-brand-deep mb-5 text-center text-sm uppercase tracking-widest">Or Send a Quick
-                    Message</h4>
-                <form class="space-y-4">
-                    <input type="text" placeholder="Full Name" required
-                        class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-brand-bright focus:ring-1 focus:ring-brand-bright text-sm transition-colors">
-                    <input type="tel" placeholder="Phone Number" required
-                        class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-brand-bright focus:ring-1 focus:ring-brand-bright text-sm transition-colors">
-                    <textarea placeholder="How can we help?" rows="3" required
-                        class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-brand-bright focus:ring-1 focus:ring-brand-bright text-sm resize-none transition-colors"></textarea>
-                    <button type="submit"
-                        class="w-full py-3.5 bg-brand-deep hover:bg-black text-white rounded-xl font-bold transition-colors shadow-lg">
+            <div class="p-6 sm:p-8 bg-brand-slate">
+                <h4 class="font-bold text-brand-deep mb-4 sm:mb-5 text-center text-xs sm:text-sm uppercase tracking-widest">Or Send a Quick Message</h4>
+                <form class="space-y-3 sm:space-y-4">
+                    <input type="text" placeholder="Full Name" required class="w-full px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-brand-bright focus:ring-1 focus:ring-brand-bright text-xs sm:text-sm transition-colors">
+                    <input type="tel" placeholder="Phone Number" required class="w-full px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-brand-bright focus:ring-1 focus:ring-brand-bright text-xs sm:text-sm transition-colors">
+                    <textarea placeholder="How can we help?" rows="2" required class="w-full px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-brand-bright focus:ring-1 focus:ring-brand-bright text-xs sm:text-sm resize-none transition-colors"></textarea>
+                    <button type="submit" class="w-full py-3 sm:py-3.5 bg-brand-deep hover:bg-black text-white rounded-xl font-bold transition-colors shadow-lg">
                         Send Message
                     </button>
                 </form>
