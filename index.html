@@ -183,6 +183,14 @@
       ]
     }
     </script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P2GXPG6MKB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P2GXPG6MKB');
+</script>
 </head>
 
 <body class="bg-brand-slate font-body text-gray-800 antialiased overflow-x-hidden" x-data="{ mobileMenu: false, scrolled: false, overDarkSection: false }" @scroll.window="scrolled = (window.scrollY > window.innerHeight - 80); const el = document.getElementById('visual-transformation'); if(el) { const rect = el.getBoundingClientRect(); overDarkSection = (rect.top <= 100 && rect.bottom >= 100); }">
