@@ -36,10 +36,15 @@
       }
 
       try {
-        const res = await fetch('/api/contact', {
+        const res = await fetch('https://www.founditos.com/api/contact-form/c37c809e-21cb-4be7-a6e7-13f582139574', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
+          body: JSON.stringify({
+            name: payload.name || '',
+            email: payload.email || '',
+            phone: payload.phone || '',
+            message: (payload.source ? 'Source: ' + payload.source + '\n\n' : '') + (payload.message || ''),
+          }),
         });
 
         const json = await res.json();
