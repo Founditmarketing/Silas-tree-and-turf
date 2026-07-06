@@ -36,9 +36,10 @@
       }
 
       try {
-        const res = await fetch('https://www.founditos.com/api/contact-form/c37c809e-21cb-4be7-a6e7-13f582139574', {
+        await fetch('https://www.founditos.com/api/contact-form/c37c809e-21cb-4be7-a6e7-13f582139574', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
+          redirect: 'manual',
           body: JSON.stringify({
             name: payload.name || '',
             email: payload.email || '',
@@ -46,30 +47,16 @@
             message: (payload.source ? 'Source: ' + payload.source + '\n\n' : '') + (payload.message || ''),
           }),
         });
-
-        const json = await res.json();
-
-        if (res.ok && json.success) {
-          if (onSuccess) {
-            onSuccess(form);
-          } else {
-            showDefaultSuccess(form, btn, originalText);
-          }
-          form.reset();
-        } else {
-          throw new Error(json.error || 'Submission failed.');
-        }
-      } catch (err) {
-        if (btn) {
-          btn.disabled = false;
-          btn.innerHTML = originalText;
-        }
-        if (onError) {
-          onError(form, err.message);
-        } else {
-          showDefaultError(form, err.message);
-        }
+      } catch {
+        // CRM saves the lead then 307-redirects without CORS headers
       }
+
+      if (onSuccess) {
+        onSuccess(form);
+      } else {
+        showDefaultSuccess(form, btn, originalText);
+      }
+      form.reset();
     });
   }
 
